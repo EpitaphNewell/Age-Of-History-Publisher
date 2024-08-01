@@ -10,7 +10,6 @@ fn create_item(ugc: &UGC<ClientManager>) {
                 Ok((published_id, _needs_to_agree_to_terms)) => {
                     println!("Published item with id {:?}", published_id);
 
-                    // Записываем ID элемента в файл
                     if let Err(e) = write_id_to_file(published_id) {
                         eprintln!("Failed to write PublishedFileId to file: {:?}", e);
                     }
@@ -84,13 +83,10 @@ fn main() {
 
     let ugc = client.ugc();
     
-    // Создаем новый элемент и записываем его ID в файл
     create_item(&ugc);
 
-    // Ожидаем немного времени, чтобы элемент был создан и ID записан в файл
     std::thread::sleep(std::time::Duration::from_secs(10));
 
-    // Читаем ID из файла и обновляем элемент
     if let Some(published_id) = read_id_from_file() {
         upload_item_content(&ugc, published_id);
     } else {
