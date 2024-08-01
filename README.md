@@ -7,11 +7,10 @@
     
   </div>
 <hr>
-
+This programm requires Rust.
+https://www.rust-lang.org
 <div align="left">
-> [!NOTE]
-> This programm requires Rust.
-> https://www.rust-lang.org
+
 
   Setup Guide
   To use the provided code for creating and uploading a Steam workshop item, follow these steps to modify specific sections with your own data.
